@@ -14,6 +14,7 @@
 list_t *create_node(char *str)
 {
     list_t *new_node = malloc(sizeof(list_t));
+
     if (!new_node)
         return NULL;
     my_strcpy(str, &(new_node)->str);

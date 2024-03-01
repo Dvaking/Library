@@ -10,6 +10,7 @@
 int my_tablen(char **tab)
 {
     int i = 0;
+
     if (tab == NULL)
         return -1;
     for (; tab[i] != NULL; i += 1);

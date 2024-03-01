@@ -22,7 +22,8 @@ void free_node(list_t *node)
 void free_list(list_t *list)
 {
     list_t *list_tmp = NULL;
-    list_t* current = list;
+    list_t *current = list;
+
     while (current != NULL) {
         list_tmp = current;
         current = current->next;

@@ -12,16 +12,18 @@
 
 int my_strcpy(char const *src, char **dest)
 {
-    int count = 0;
+    int lenStr = 0;
+
     if (src == NULL)
         return -1;
-    if ((count = my_strlen(src)) == -1)
+    lenStr = my_strlen(src);
+    if (lenStr == -1)
         return -1;
-    (*dest) = malloc(sizeof(char) * (count + 1));
+    (*dest) = malloc(sizeof(char) * (lenStr + 1));
     if ((*dest) == NULL)
         return -1;
-    for (int i = 0; src[i] != '\0'; i += 1 )
+    for (int i = 0; src[i] != '\0'; i += 1)
         (*dest)[i] = src[i];
-    (*dest)[count] = '\0';
+    (*dest)[lenStr] = '\0';
     return 0;
 }

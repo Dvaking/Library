@@ -12,6 +12,8 @@
 
 static int move_in_list(list_t **list_dest, list_t *tmp)
 {
+    list_t *tmp_2 = NULL;
+
     if (!tmp)
         return -1;
     if ((*list_dest) == NULL){
@@ -19,7 +21,7 @@ static int move_in_list(list_t **list_dest, list_t *tmp)
         tmp->next = NULL;
         return 0;
     }
-    list_t *tmp_2 = (*list_dest);
+    tmp_2 = (*list_dest);
     tmp->next = tmp_2;
     (*list_dest) = tmp;
     return 0;
@@ -30,9 +32,11 @@ int push_on_list(list_t **list_src, list_t **list_dest)
     int list_len = 0;
     list_t *tmp_1 = (*list_src);
     list_t *tmp_2 = NULL;
+
     if (!(*list_src))
         return -1;
-    if ((list_len = my_list_len((*list_src))) == -1)
+    list_len = my_list_len((*list_src));
+    if (list_len == -1)
         return -1;
     if (list_len < 2){
         if (move_in_list(list_dest, tmp_1) == -1)

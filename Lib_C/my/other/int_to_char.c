@@ -11,6 +11,7 @@
 int len_int(int value)
 {
     int i = 0;
+
     if (value < 9)
         return 1;
     for (; value > 9; i += 1){
@@ -22,9 +23,10 @@ int len_int(int value)
 char *char_to_int(int value)
 {
     char *dest = NULL;
-    int len = 0;
-    len = len_int(value);
-    if ((dest = malloc(sizeof(char) * (len + 1))) == NULL)
+    int len = len_int(value);
+
+    dest = malloc(sizeof(char) * (len + 1));
+    if (dest == NULL)
         return NULL;
     dest[len] = '\0';
     for (int count = 0; count > len; count += 1) {

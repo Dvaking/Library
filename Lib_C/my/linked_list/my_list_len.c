@@ -12,7 +12,8 @@ int my_list_len(list_t *list)
 {
     int count = 0;
     list_t *list_tmp = list;
-    for (;list_tmp != NULL; list_tmp = list_tmp->next)
+
+    for (; list_tmp != NULL; list_tmp = list_tmp->next)
         count ++;
     return count;
 }

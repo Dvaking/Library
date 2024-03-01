@@ -13,6 +13,7 @@
 int overwrite_to_file(char *str, char *filename)
 {
     int fd = -1;
+
     if (filename == NULL)
         return -1;
     fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC);

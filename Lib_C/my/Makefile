@@ -33,15 +33,13 @@ STR		=	my_putstr.c				\
 			my_strncmp.c			\
 			my_strcmp.c				\
 
-SPLIT	=	my_complexspliter.c		\
-			my_splitstr.c			\
+SPLIT	=	my_splitstr.c			\
 			my_str_to_word_array.c	\
 
 TAB		=	my_tablen.c				\
 			free_tab.c				\
 			my_tabcpy.c				\
 			tab_generator.c			\
-			remove_from_tab.c		\
 
 
 DIR_LIST	=	$(addprefix linked_list/, $(LIST))
@@ -75,21 +73,16 @@ NAME		=	libmy.a
 
 CPPFLAGS	=	-I./include/
 
-LCRITER		= -lcriterion
 
 DEBUG		=	-ggdb3
 
-${NAME}:	${OBJ}
+$(NAME):	$(OBJ)
 	ar rc $@ $^
-	mv ${NAME} ../
+	mv $(NAME) ../
 
-all:	${NAME}
+all:	$(NAME)
 
 re: fclean $(NAME)
-
-debug: ${OBJ}
-	ar rc ${NAME} $^ ${DEBUG}
-	mv rc ${NAME} ../
 
 clean:
 	rm -f $(OBJ)

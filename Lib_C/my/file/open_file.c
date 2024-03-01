@@ -15,11 +15,13 @@ char *open_file(char const *file)
     int fd;
     int bytes;
     struct stat st;
+    char *str = NULL;
+
     if (file == NULL)
         return NULL;
     if (stat(file, &st) == -1)
         return NULL;
-    char *str = malloc(sizeof(char) * (st.st_size + 1));
+    str = malloc(sizeof(char) * (st.st_size + 1));
     fd = open(file, O_RDONLY);
     bytes = read(fd, str, st.st_size);
     if (bytes == -1)

@@ -6,18 +6,29 @@
 */
 
 #include "proto_lib.h"
+#include <unistd.h>
+
+static int is_neg(char c, int *sing, int *i)
+{
+    if (sing == NULL || i == NULL)
+        return -1;
+    if (c == '-'){
+        *sing = -1;
+        *i += 1;
+    }
+    return 0;
+}
 
 int char_to_int(char const *str)
 {
     long int nbr = 0;
     int sign = 1;
     int i = 0;
+
     if (!str)
         return -1;
-    if (str[0] == '-'){
-        sign = -1;
-        i ++;
-    }
+    if (is_neg(str[i], &sign, &i) == -1)
+        return -1;
     for (; str[i] != '\0'; i += 1){
         if (str[i] < '0' || str[i] > '9'){
             return -1;

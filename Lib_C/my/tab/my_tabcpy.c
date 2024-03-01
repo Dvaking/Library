@@ -12,14 +12,17 @@
 
 int my_tabcpy(char **src, char ***dest)
 {
-    int len_tab = 0;
+    int lenTab = 0;
+
     if (src == NULL)
         return -1;
-    if ((len_tab = my_tablen(src)) == -1)
+    lenTab = my_tablen(src);
+    if (lenTab == -1)
         return -1;
-    if (((*dest) = malloc(sizeof(char *)* (len_tab + 1))) == NULL)
+    (*dest) = malloc(sizeof(char *)* (lenTab + 1));
+    if ((*dest) == NULL)
         return -1;
-    (*dest)[len_tab] = NULL;
+    (*dest)[lenTab] = NULL;
     for (int y = 0; src[y] != NULL; y += 1){
         if (my_strcpy(src[y], &(*dest)[y]) == -1)
             return -1;

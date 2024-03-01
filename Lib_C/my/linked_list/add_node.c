@@ -13,6 +13,7 @@ list_t *add_node_in_list(list_t *list, char *str)
 {
     list_t *node = create_node(str);
     list_t *next_list = list;
+
     if (next_list == NULL)
         return node;
     while (next_list->next != NULL)
